@@ -1,5 +1,5 @@
-# 25.02.2023
-# Version 1.2 - tested only on windows 10
+# 01.03.2023
+# Version 1.3 - tested only on windows 10
 # Author: Lilkajt
 # discord: lilkajt#6121
 import time
@@ -69,7 +69,7 @@ def ExcelFile(email, username,password):
         with pd.ExcelWriter(file_path,mode='a',engine='openpyxl', if_sheet_exists='overlay') as writer:
             df.to_excel(writer,sheet_name="Accounts",startrow=writer.sheets["Accounts"].max_row,index=False, header=False)
 
-def SteamAccount():
+def Create_steam_account():
     email = random_email()
     username = email.split("@")[0]
     password = random_password(16)
@@ -108,7 +108,7 @@ def SteamAccount():
 try:
     Count = 0
     while (Count < Limit):
-        SteamAccount()
+        Create_steam_account()
         time.sleep(1)
         Count +=1
         print(f"Accounts generated: {Count}")
